@@ -30,5 +30,5 @@ return to input repl with back key.
 
 ```bash
 julia --project=. src/data.jl
-julia --project=. --threads=4 src/update.jl
+julia --project=. --threads=7 src/update.jl
 ```
