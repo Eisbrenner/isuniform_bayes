@@ -44,7 +44,7 @@ turing_chns = sample(
 )
 
 # convert to ArviZ inference data and save to disc
-idata_turing_post = from_mcmcchains(turing_chns; library="Turing")
+# idata_turing_post = from_mcmcchains(turing_chns; library="Turing")
 
 # FIXME needs NCDatasets but NCDatasets fails to pre-compile
 # outfile = joinpath(findproject(), shared_params["updating"]["ncfile"])
