@@ -1,0 +1,5 @@
+# ignore data
+**/*.arrow
+
+# ignore local settings
+**/.vscode
