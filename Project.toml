@@ -1,9 +1,11 @@
 [deps]
 Arrow = "69666777-d1a9-59fb-9406-91d4454c9d45"
 ArviZ = "131c737c-5715-5e2e-ad31-c244f01c1dc7"
+ArviZPythonPlots = "4a6e88f0-2c8e-11ee-0601-e94153f0eada"
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
 Distributions = "31c24e10-a181-5473-b8eb-7969acd0382f"
 DrWatson = "634d3b9d-ee7a-5ddf-bec9-22491ea816e1"
 IJulia = "7073ff75-c697-5162-941a-fcdaad2a7d2a"
+NCDatasets = "85f8d34a-cbdd-5861-8df4-14fed0d494ab"
 StatsPlots = "f3b207a7-027a-5e70-b257-86293d7955fd"
 Turing = "fce5fe82-541a-59a6-adf8-730c64b5f9a0"

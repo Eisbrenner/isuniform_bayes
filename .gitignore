@@ -1,5 +1,9 @@
 # ignore data
 **/*.arrow
+**/*.nc
+
+# ignore local env
+**/.CondaPkg
 
 # ignore local settings
 **/.vscode

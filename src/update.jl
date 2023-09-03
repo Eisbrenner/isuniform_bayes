@@ -1,10 +1,18 @@
+# paths and config
 using DrWatson
 using TOML
-using Arrow
-using Turing
-using DataFrames
-using Random
 
+# data IO
+using Arrow
+using DataFrames
+# using NCDatasets
+# using ArviZ
+
+# computations
+using Random
+using Turing
+
+# unknown parameter of the sampler
 magic_nuts_number = 0.8
 
 # load parameters
@@ -21,11 +29,11 @@ warmup = shared_params["updating"]["warmup"]
 samples = DataFrame(Arrow.Table(infile))[:, :samples]
 
 # load model
-include("model.jl")
+include(joinpath(findproject(), "src/model.jl"))
 
 # sampling
 rng = Random.MersenneTwister(seed);
-chns = sample(
+turing_chns = sample(
     # FIXME do I force all chains to be the same?
     rng,
     beta(samples),
@@ -35,7 +43,11 @@ chns = sample(
     nchains,
 )
 
-# data formatting and saving
-# FIXME while writing to disc the meta data is lost
-# FIXME how to do subsequent visualization with ArviZ.jl is unclear
-Arrow.write(outfile, chns)
+# convert to ArviZ inference data and save to disc
+idata_turing_post = from_mcmcchains(turing_chns; library="Turing")
+
+# FIXME needs NCDatasets but NCDatasets fails to pre-compile
+# outfile = joinpath(findproject(), shared_params["updating"]["ncfile"])
+# to_netcdf(idata_turing_post, outfile)
+# FIXME use Arrow until fixed
+Arrow.write(outfile, turing_chns)
